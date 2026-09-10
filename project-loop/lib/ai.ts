@@ -1,3 +1,4 @@
+import {z} from "zod";
 import { GoogleGenAI, Type } from "@google/genai";
 
 const apikey = process.env.GEMINI_API_KEY;
@@ -35,6 +36,15 @@ const feedbackResponseSchema = {
     required: ["sentiment", "summary", "theme", "category"],
 };
 
+const feedbackAnalysisSchema = z.object({
+    sentiment: z.enum(["positive", "neutral", "negative"]),
+    summary: z.string().min(1),
+    theme: z.string().min(1),
+    category: z.string().min(1),
+});
+
+export type feedbackAnalysisSchema = z.infer<typeof feedbackAnalysisSchema>;
+
 export async function analyzeFeedback(feedback: string) {
     const prompt = `
     Analyze the following customer feedback for project LOOP.
@@ -62,6 +72,8 @@ export async function analyzeFeedback(feedback: string) {
         throw new Error("Gemini returned an empty response.");
     }
 
-    return JSON.parse(response.text)
+    const parsedResponse = JSON.parse(response.text);
+
+    return feedbackAnalysisSchema.parse(parsedResponse);
 }
 
