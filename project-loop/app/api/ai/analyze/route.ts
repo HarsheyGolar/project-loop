@@ -1,29 +1,44 @@
 import { NextResponse } from "next/server";
+import {z} from "zod"
 import { analyzeFeedback } from "@/lib/ai";
+
+const analyzeRequestSchema = z.object({
+    feedback: z
+    .string()
+    .trim()
+    .min(1, "Feedback is required.")
+    .max(5000, "Feedback is too long."),
+});
 
 export async function POST(request: Request){
     try {
-        const body = await request.json();
-        if (
-            !body ||
-            typeof body.feedback !== "string" ||
-            body.feedback.trim().length === 0
-        ) {
+        const body: unknown = await request.json();
+
+        const validation = analyzeRequestSchema.safeParse(body);
+
+        if(!validation.success) {
             return NextResponse.json(
-                {error: "Feedback is required. "},
+                {
+                    error:
+                    validation.error.issues[0]?.message ?? "Invalid request payload.",
+                },
                 {status: 400}
             );
         }
 
-        const result = await analyzeFeedback(body.feedback);
+        const analysis = await analyzeFeedback(validation.data.feedback);
 
-        return NextResponse.json(result, {status: 200});
+        return NextResponse.json(analysis, {
+            status: 200,
+        });
     } catch (error) {
-        console.error("AI analysis error: ", error);
+        console.error("AI analysis error:", error);
 
         return NextResponse.json(
-            {error: "Failed to analysis feedback."},
-            { status: 500}
+            {
+                error: "Failed to analyze feedback.",
+            },
+            {status:500}
         );
     }
 }
