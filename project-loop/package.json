@@ -10,7 +10,7 @@
     "postinstall": "prisma skills sync || exit 0"
   },
   "dependencies": {
-    "@google/genai": "^2.21.0",
+    "@google/genai": "^2.22.0",
     "@prisma/client": "^7.10.0",
     "@supabase/ssr": "^0.12.6",
     "@supabase/supabase-js": "^2.115.0",
