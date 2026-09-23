@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-// @ts-expect-error Next.js handles global CSS imports during bundling.
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,5 +15,5 @@ export default function RootLayout({
     <html lang="en">
       <body>{children}</body>
     </html>
-  );
+  );  
 }
