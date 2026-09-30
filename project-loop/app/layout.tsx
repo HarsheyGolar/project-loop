@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./loop-dashboard.css";
 
 export const metadata: Metadata = {
   title: "Project LOOP",
@@ -15,5 +16,5 @@ export default function RootLayout({
     <html lang="en">
       <body>{children}</body>
     </html>
-  );  
+  );
 }

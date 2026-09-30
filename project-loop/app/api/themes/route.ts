@@ -1,21 +1,58 @@
 import { NextRequest, NextResponse } from "next/server";
-export const dynamic = "force-dynamic";
+import { auth } from "@/auth";
+import { db } from "@/lib/db";
 import {
   getThemeCounts,
   getFeedbackByTheme,
-} from "../../../lib/themes";
+} from "@/lib/themes";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(request: NextRequest) {
   try {
-    const workspaceId = request.nextUrl.searchParams.get("workspaceId");
-    const theme = request.nextUrl.searchParams.get("theme");
+    const session = await auth();
 
-    if (!workspaceId) {
+    if (!session?.user?.id) {
       return NextResponse.json(
-        { error: "workspaceId is required" },
-        { status: 400 }
+        { error: "Unauthorized" },
+        { status: 401 }
       );
     }
+
+    const membership = await db.workspaceMember.findFirst({
+      where: {
+        userId: session.user.id,
+      },
+      orderBy: {
+        createdAt: "asc",
+      },
+      select: {
+        workspaceId: true,
+      },
+    });
+
+    if (!membership) {
+      return NextResponse.json(
+        { error: "Workspace not found" },
+        { status: 404 }
+      );
+    }
+
+    const requestedWorkspaceId =
+      request.nextUrl.searchParams.get("workspaceId");
+
+    if (
+      requestedWorkspaceId &&
+      requestedWorkspaceId !== membership.workspaceId
+    ) {
+      return NextResponse.json(
+        { error: "Forbidden" },
+        { status: 403 }
+      );
+    }
+
+    const workspaceId = membership.workspaceId;
+    const theme = request.nextUrl.searchParams.get("theme");
 
     if (theme) {
       const feedback = await getFeedbackByTheme(workspaceId, theme);

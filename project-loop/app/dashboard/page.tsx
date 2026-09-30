@@ -1,36 +1,43 @@
-export default function DashboardPage() {
-    return (
-        <main className="min-h-screen p-8">
-            <h1 className="text-3xl font-bold">Project LOOP Dashboard</h1>
+// import { redirect } from "next/navigation";
+// import LoopDashboard from "./LoopDashboard";
+// import { getCurrentUser } from "@/lib/current-user";
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <div className="rounded -x1 border p-5">
-                    <p className="text-sm text-gray-500">Total Feedback</p>
-                    <p className="mt-2 text-2xl font-bold">0</p>
-                </div>
+// export default async function DashboardPage() {
+//   const user = await getCurrentUser();
 
-                <div className="rounded-x1 border p-5">
-                    <p className="text-sm text-gray-500">Positive Feedback</p>
-                    <p className="mt-2 text-2xl font-bold">0</p>
-                </div>
+//   if (!user) {
+//     redirect("/auth/login");
+//   }
 
-                <div className="rounded-x1 border p-5">
-                    <p className="text-sm text-gray-500">Negative Feedback</p>
-                    <p className="mt-2 text-2xl font-bold">0</p>
-                </div>
+//   const displayName = user.name?.trim() || user.email.split("@")[0] || "there";
 
-                <div className="rounded-x1 border p-5">
-                    <p className="text-sm text-gray-500">Top Themes</p>
-                    <p className="mt-2 text-2xl font-bold">0</p>
-                </div>
-            </div>
+//   return (
+//     <LoopDashboard
+//       userName={displayName}
+//       workspaceName={user.workspace.name}
+//     />
+//   );
+// }
 
-            <div className="mt-8 rounded-xl border p-6">
-                <h2 className="text-xl font-semibold">Recent Feedback</h2>
-                <p className="mt-2 text-gray-500">
-                    Feedback data will appear here.
-                </p>
-            </div>
-        </main>
-    )
+import { redirect } from "next/navigation";
+import LoopDashboard from "./LoopDashboard";
+import { getCurrentUser } from "@/lib/current-user";
+
+export default async function DashboardPage() {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    redirect("/auth/login");
+  }
+
+  const displayName =
+    user.name?.trim() || user.email.split("@")[0] || "there";
+
+  return (
+    <LoopDashboard
+      userName={displayName}
+      userRole={user.role}
+      workspaceName={user.workspace.name}
+    />
+  );
 }

@@ -8,9 +8,9 @@ datasource db {
 }
 
 enum WorkspaceRole {
-  OWNER
   ADMIN
-  MEMBER
+  ANALYST
+  VIEWER
 }
 
 enum FeedbackSource {
@@ -40,13 +40,14 @@ model Workspace {
 
   members     WorkspaceMember[]
   feedback    Feedback[]
+  reports VocReport[]
 }
 
 model WorkspaceMember {
   id          String        @id @default(cuid())
   userId      String
   workspaceId String
-  role        WorkspaceRole @default(MEMBER)
+  role        WorkspaceRole @default(VIEWER)
   createdAt   DateTime      @default(now())
 
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -66,10 +67,12 @@ model Feedback {
   source       FeedbackSource @default(MANUAL)
 
 sentiment    String?
+sentimentScore Float?
+embedding Json?
 summary      String?
 theme        String?
 category     String?
-status       String?
+status       String            @default("NEW")
 
 metadata     Json?
 
@@ -83,4 +86,23 @@ metadata     Json?
   @@index([createdById])
   @@index([sentiment])
   @@index([theme])
+}
+
+model VocReport {
+  id               String   @id @default(cuid())
+  workspaceId      String
+  title            String
+  periodStart      DateTime
+  periodEnd        DateTime
+  executiveSummary String
+  themeSummary     String
+  sentimentSummary String
+  keyQuotes        Json
+  recommendedActions String
+  createdAt        DateTime @default(now())
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@index([workspaceId])
+  @@index([createdAt])
 }
