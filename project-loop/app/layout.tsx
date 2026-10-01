@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-// The CSS file is handled by Next.js and has no TypeScript declarations.
-// @ts-ignore -- intentional side-effect import for global styles
 import "./globals.css";
+import "./loop-dashboard.css";
 
 export const metadata: Metadata = {
   title: "Project LOOP",
