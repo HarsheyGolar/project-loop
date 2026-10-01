@@ -20,7 +20,7 @@ export default function ImportPage() {
             return;
         }
         setMessage(
-            `Simulated: Imported: ${data.imported ?? 0} · Failed: ${data.failed ?? 0} · Unclassified: ${data.unclassified ?? 0}`
+            `Simulated: Imported: ${data.imported ?? 0} | Failed: ${data.failed ?? 0} | Unclassified: ${data.unclassified ?? 0}`
         );
     } catch {
         setMessage("Something went wrong during simulation.");
@@ -55,7 +55,7 @@ export default function ImportPage() {
             }
 
             setMessage(
-                `Imported: ${data.imported ?? 0} · Failed: ${data.failed ?? 0} · Unclassified: ${data.unclassified ?? 0}`
+                `Imported: ${data.imported ?? 0} | Failed: ${data.failed ?? 0} | Unclassified: ${data.unclassified ?? 0}`
             );
 
         } catch {

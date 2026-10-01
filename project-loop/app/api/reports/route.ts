@@ -30,7 +30,6 @@ export async function GET() {
             },
             select: {
                 workspaceId: true,
-                role: true,
             },
         });
 
@@ -38,13 +37,6 @@ export async function GET() {
             return NextResponse.json(
                 { error: "Workspace not found" },
                 { status: 404 }
-            );
-        }
-
-        if (membership.role === "VIEWER") {
-            return NextResponse.json(
-                { error: "Viewers cannot generate reports" },
-                { status: 403 }
             );
         }
 
@@ -88,6 +80,7 @@ export async function POST(request: Request) {
             },
             select: {
                 workspaceId: true,
+                role: true,
             },
         });
 
@@ -95,6 +88,13 @@ export async function POST(request: Request) {
             return NextResponse.json(
                 { error: "Workspace not found" },
                 { status: 404 }
+            );
+        }
+
+        if (membership.role === "VIEWER") {
+            return NextResponse.json(
+                { error: "Viewers cannot generate reports" },
+                { status: 403 }
             );
         }
 
