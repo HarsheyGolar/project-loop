@@ -189,7 +189,7 @@ sequenceDiagram
 | **Grounding** | The prompt instructs the model to answer using only the provided feedback and not to invent facts; sources are returned with the answer. |
 | **Reports** | Stats and context are computed in code first, then Gemini writes the narrative; output is schema-validated. |
 
-📄 Deep dive: [`docs/ai-integration.md`](docs/ai-integration.md)
+📄 Deep dive: [`project-loop/docs/ai-integration.md`](project-loop/docs/ai-integration.md)
 
 ---
 
