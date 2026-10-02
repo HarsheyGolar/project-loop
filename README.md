@@ -10,7 +10,7 @@
 
 <br />
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Open_App-EF765F?style=for-the-badge&logo=vercel&logoColor=white)](https://YOUR-VERCEL-URL.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Open_App-EF765F?style=for-the-badge&logo=vercel&logoColor=white)](https://project-loop-orpin.vercel.app/auth/login)
 [![AI Docs](https://img.shields.io/badge/AI_Docs-Read-252B2B?style=for-the-badge&logo=readthedocs&logoColor=white)](docs/ai-integration.md)
 
 <br />
@@ -527,7 +527,7 @@ Built as an internship project for **Zidio Development**. Thanks to the teams be
       <a href="https://github.com/saireddy-kamujula" title="GitHub">
         <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
       </a>
-      <a href="https://linkedin.com/in/kamjula-achyuth-sai" title="LinkedIn">
+      <a href="https://www.linkedin.com/in/achyuthsaikamujula/?isSelfProfile=false" title="LinkedIn">
         <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
       </a>
       <br />
@@ -543,7 +543,7 @@ Built as an internship project for **Zidio Development**. Thanks to the teams be
       <a href="https://github.com/Gajje-Shiva" title="GitHub">
         <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
       </a>
-      <a href="https://linkedin.com/in/gajje-shiva" title="LinkedIn">
+      <a href="https://www.linkedin.com/in/gajje-shiva-5154b0355/?isSelfProfile=false" title="LinkedIn">
         <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
       </a>
       <br />
