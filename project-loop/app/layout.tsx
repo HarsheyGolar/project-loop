@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Project LOOP",
   description: "AI Customer Feedback Intelligence Platform",
   icons: {
-    icon: "/loop.png"
+    icon: "/icon.png"
   }
 };
 
