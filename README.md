@@ -6,7 +6,7 @@
 
 <div align="center">
 
-<img src="assets/loop-logo.png" alt="LOOP — Close the loop on customer feedback" width="15%" />
+<img src="project-loop/assets/loop-logo.png" alt="LOOP — Close the loop on customer feedback" width="15%" />
 
 <br />
 
@@ -93,31 +93,31 @@ Support tickets, app-store reviews, NPS comments, sales notes, and community pos
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="assets/overview.png" alt="Overview dashboard" /><br />
+      <img src="project-loop/assets/overview.png" alt="Overview dashboard" /><br />
       <sub><b>Overview</b> — live stats, volume, sentiment & top issues</sub>
     </td>
     <td width="50%" align="center">
-      <img src="assets/inbox.png" alt="Feedback inbox" /><br />
+      <img src="project-loop/assets/inbox.png" alt="Feedback inbox" /><br />
       <sub><b>Feedback inbox</b> — search, filters, status workflow</sub>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <img src="assets/analytics.png" alt="Analytics studio" /><br />
+      <img src="project-loop/assets/analytics.png" alt="Analytics studio" /><br />
       <sub><b>Analytics</b> — trends and top customer themes</sub>
     </td>
     <td width="50%" align="center">
-      <img src="assets/ai-insights.png" alt="AI insights with trending themes" /><br />
+      <img src="project-loop/assets/ai-insights.png" alt="AI insights with trending themes" /><br />
       <sub><b>AI Insights</b> — summaries, quotes & spiking themes</sub>
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
-      <img src="assets/ask-loop.png" alt="Ask LOOP grounded Q&A" /><br />
+      <img src="project-loop/assets/ask-loop.png" alt="Ask LOOP grounded Q&A" /><br />
       <sub><b>Ask LOOP</b> — grounded answers with cited sources</sub>
     </td>
     <td width="50%" align="center">
-      <img src="assets/team.png" alt="Team management" /><br />
+      <img src="project-loop/assets/team.png" alt="Team management" /><br />
       <sub><b>Team</b> — members and role management</sub>
     </td>
   </tr>
@@ -511,7 +511,7 @@ Built as an internship project for **Zidio Development**. Thanks to the teams be
       <a href="https://github.com/HarsheyGolar" title="GitHub">
         <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub" />
       </a>
-      <a href="https://linkedin.com/in/harshey-golar" title="LinkedIn">
+      <a href="https://www.linkedin.com/in/harshey-golar-231087339/?isSelfProfile=true" title="LinkedIn">
         <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" />
       </a>
       <br />
