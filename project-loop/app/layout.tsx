@@ -5,9 +5,6 @@ import "./loop-dashboard.css";
 export const metadata: Metadata = {
   title: "Project LOOP",
   description: "AI Customer Feedback Intelligence Platform",
-  icons: {
-    icon: "/icon.png"
-  }
 };
 
 export default function RootLayout({
